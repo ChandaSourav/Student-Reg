@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Student Registration</h1>
+            <h5>Basic Information</h5>
+            <form id="record-form" action="/action_page.php" onsubmit="myFunction()">
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="number" id="age" placeholder="Age" required>
+                <input type="text" id="email" placeholder="Email" required>
+                <input type="number" id="Phone" placeholder="PhoneNumber" required>
+                <h5>Address Information</h5>
+                <input type="text" id="Address" placeholder="Address" required>
+                <input type="number" id="PinCode" placeholder="PinCode" required>
+                <select name="State" id="State"placeholder="State"required>
+                    <option value="select">Select</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="West Bengal">West Bengal</option>
+                    <option value="Others">Others</option>
+                </select>
+                <select name="Country" id="Country"placeholder="Country"required>
+                    <option value="select">Select</option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="UK">UK</option>
+                    <option value="CANADA">CANADA</option>
+                    <option value="Others">Others</option>
+                </select>
+                <h5>Academic Details</h5>
+                <input type="text" id="Season" placeholder="eg. 2023-2024" required>
+                <select name="Course" id="Course"placeholder="Course"required>
+                    <option value="select">Select</option>
+                    <option value="M.Tech">M.Tech</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Others">Others</option>
+                </select>
+                <select name="Programme" id="Programme"placeholder="Programme"required>
+                    <option value="select">Select</option>
+                    <option value="CSE">CSE</option>
+                    <option value="EE">EE</option>
+                    <option value="ECE">ECE</option>
+                    <option value="CE">CE</option>
+                    <option value="ME">ME</option>
+                    <option value="Others">Others</option>
+                </select>
+                <select name="Semester" id="Semester"placeholder="Semester"required>
+                    <option value="select">Select</option>
+                    <option value="1st Semester">1st Semester</option>
+                    <option value="2nd Semester">2nd Semester</option>
+                    <option value="3rd Semester">3rd Semester</option>
+                    <option value="4th Semester">4th Semester</option>
+                    <option value="5th Semester">5th Semester</option>
+                    <option value="6th Semester">6th Semester</option>
+                    <option value="7th Semester">7th Semester</option>
+                    <option value="8th Semester">8th Semester</option>
+                    <option value="9th Semester">9th Semester</option>
+                    <option value="10th Semester">10th Semester</option>
+                </select>
+                <select name="Year" id="Year"placeholder="Year"required>
+                    <option value="select">Select</option>
+                    <option value="1st Year">1st Year</option>
+                    <option value="2nd Year">2nd Year</option>
+                    <option value="3rd Year">3rd Year</option>
+                    <option value="4th Year">4th Year</option>
+                    <option value="5th Year">5th Year</option>
+                </select>
+                    <button type="submit">Submit</button>
+                <!-- <input type="hidden" id="edit-index" value="-1"> -->
+            </form>
+        </div>
+        <div class="right">
+            <h2>
+                <h5>Upload Photo</h5>
+                <input type="file" id="imageUpload" accept="image/*"id=finput onchange="upload()">
+                <div id="imageContainer"></div>
+                <!-- <input type="file" multiple="false" accept="image/*" id=finput onchange="upload()"placeholder="Upload"required> -->
+            </h2>
+        </div>
+    </div>
+    <script>
+        function myFunction() {
+          alert("The form was submitted");
+        }
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+        const imageContainer = document.getElementById('imageContainer');
+        imageContainer.innerHTML = '';
+
+        const file = event.target.files[0];
+        if (file) {
+            const img = document.createElement('img');
+            img.src = URL.createObjectURL(file);
+            imageContainer.appendChild(img);
+        }
+        });
+    </script>
+</body>
+</html>
